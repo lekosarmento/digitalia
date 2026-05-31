@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalIA - Theory of Change and Social Impact (FID Proposal)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+ 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        corp: {
+                            navy: '#0A0F1D',      /<em> Premium dark background </em>/
+                            slate: '#161F38',     /<em> Slate panels </em>/
+                            light: '#F8FAFC',
+                            blue: '#3B82F6',      /<em> Kobalt blue accent </em>/
+                            teal: '#0D9488',
+                            gray: '#CBD5E1',      /<em> Accessibly bright gray text </em>/
+                            textMain: '#FFFFFF',
+                            textSub: '#E2E8F0',
+                            border: '#2A3B66',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+ 
+    <style>
+        body {
+            background-color: #0A0F1D;
+            color: #E2E8F0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .corp-panel {
+            background: #111827;
+            border: 1px solid #1F2937;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
+        }
+ 
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+ 
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+ 
+        .separator-line {
+            height: 2px;
+            background: linear-gradient(90deg, #3B82F6 0%, rgba(59, 130, 246, 0) 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between">
+ 
+    <!-- Top Elegant Navigation Indicator -->
+    <header class="w-full px-12 py-5 flex justify-between items-center border-b border-[#1F2937] z-10">
+        <div class="flex items-center gap-3">
+            <div class="h-8 w-8 rounded bg-gradient-to-tr from-blue-600 to-teal-500 flex items-center justify-center shadow">
+                <i data-lucide="award" class="text-white h-4.5 w-4.5"></i>
+            </div>
+            <span class="font-sans font-bold text-xl tracking-tight text-white">DigitalIA</span>
+        </div>
+        <div class="flex items-center gap-6 text-xs text-corp-gray font-medium">
+            <span class="tracking-widest uppercase font-semibold text-blue-400">FID CONCEPT & SOCIAL THEORY OF CHANGE</span>
+            <span class="h-4 w-px bg-[#1F2937]"></span>
+            <span id="slide-counter" class="font-mono text-white text-sm">1 / 10</span>
+        </div>
+    </header>
+ 
+    <!-- Slide Content Wrapper -->
+    <main class="flex-grow flex items-center justify-center px-12 md:px-24 z-10 w-full max-w-7xl mx-auto overflow-hidden">
+        
+        <!-- Slide 1: Cover -->
+        <section id="slide-1" class="slide active flex-col justify-center items-start w-full">
+            <div class="max-w-4xl">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-4 block font-sans">VALORIZAÇÃO REGIONAL E CIÊNCIA SOCIAL</span>
+                <h1 class="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+                    Teoria da Mudança e Tese de Impacto Social
+                </h1>
+                <div class="separator-line w-48 mb-8"></div>
+                <p class="text-[#E2E8F0] text-lg md:text-xl max-w-3xl mb-10 leading-relaxed font-light">
+                    O DigitalIA baseia-se em uma lógica de causalidade rigorosa e evidências científicas sólidas para a capacitação digital de bolso da juventude periférica. Desenvolvemos uma tese estruturada de desenvolvimento humano para o edital do FID.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-semibold tracking-wider text-white">
+                    <span class="bg-[#111827] border border-[#1F2937] px-4 py-2.5 rounded text-blue-400">
+                        EVALUATOR: DEPT. ECONOMIA / CCSA UFPB
+                    </span>
+                    <span class="bg-[#111827] border border-[#1F2937] px-4 py-2.5 rounded text-blue-400">
+                        CONTRAFACTUAL: GRUPO CONTROLE LISTA DE ESPERA
+                    </span>
+                    <span class="bg-[#111827] border border-[#1F2937] px-4 py-2.5 rounded text-emerald-400">
+                        FOCO EXCLUSIVO ODS 1, 4, 8 E 10
+                    </span>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 2: Insumos (Inputs) -->
+        <section id="slide-2" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Cadeia Causal - Insumos</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6 leading-tight">1. Insumos Estratégicos (Section 3.1)</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        • <strong>Grant FID (Prepare & Piloto)</strong>: Foco total em inovação social aplicada, financiamento de processos e validação operacional.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        • <strong>Plataforma e Parcerias</strong>: WhatsApp Core e Web App integrados à expertise pedagógica da <strong>UFPB Virtual</strong>, <strong>Instituto Aliança</strong> e infraestrutura do <strong>Polo de Inovação de João Pessoa</strong>.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="corp-panel rounded-lg p-6">
+                    <h4 class="font-sans font-semibold text-white text-sm mb-4 border-b border-corp-border pb-2 uppercase text-blue-400">Insumos Necessários</h4>
+                    <div class="space-y-3 font-mono text-[11px]">
+                        <div class="flex justify-between border-b border-corp-border/50 pb-1.5">
+                            <span class="text-corp-gray font-sans font-semibold">Grant Estágio 0:</span>
+                            <span class="text-white font-bold">€50.000 (Prepare)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/50 pb-1.5">
+                            <span class="text-corp-gray font-sans font-semibold">Equipe Principal:</span>
+                            <span class="text-white font-bold">CTO, M&E, DPO, Gestora Comunitária</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/50 pb-1.5">
+                            <span class="text-corp-gray font-sans font-semibold">Aliança Territorial:</span>
+                            <span class="text-white font-bold">UFPB, SEBRAE-PB e SEDES</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-corp-gray font-sans font-semibold">Infraestrutura:</span>
+                            <span class="text-emerald-400 font-bold">WhatsApp API + Postgres Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 3: Atividades (Activities) -->
+        <section id="slide-3" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-4">
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-xs text-blue-400 font-bold block mb-1">ONBOARDING CONVERSACIONAL</span>
+                        <p class="text-corp-gray text-xs font-light leading-relaxed">
+                            Interação facilitada em comunidades periféricas liderada por gestoras comunitárias locais, colhendo dados de consentimento parental LGPD em ambiente móvel simples.
+                        </p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-xs text-blue-400 font-bold block mb-1">TUTORIA COGNITIVA MANDACARU</span>
+                        <p class="text-corp-gray text-xs font-light leading-relaxed">
+                            Envio diário e interativo de blocos curtos pedagógicos em dialeto e áudio via Whisper, reduzindo a evasão ao simular uma conversa amigável entre mentor e aluno.
+                        </p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-xs text-blue-400 font-bold block mb-1">MATCHING E ENTREGA DE PROJETOS</span>
+                        <p class="text-corp-gray text-xs font-light leading-relaxed">
+                            Vinculação inteligente de egressos qualificados a micro-demandas de PMEs no ecossistema de marketplace, gerando provas de habilidade reais.
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Cadeia Causal - Atividades</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6 leading-tight">2. Atividades de Capacitação Digital</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        Transformamos o tempo ocioso em smartphones das periferias em ciclos práticos de capacitação produtiva e geração de renda.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        A gamificação e o feedback construtivo e empático imediato fornecido pelo chatbot cognição estimulam a conclusão das trilhas.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 4: Produtos (Outputs) -->
+        <section id="slide-4" class="slide flex-col justify-center w-full">
+            <div class="mb-8">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold block font-sans">Cadeia Causal - Produtos</span>
+                <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mt-2">3. Outputs e Métricas de Engajamento</h2>
+                <div class="separator-line w-48 mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="corp-panel rounded-lg p-6">
+                    <span class="text-xs text-blue-400 font-bold block mb-1">MÉTRICAS DE ADESÃO</span>
+                    <h3 class="font-serif font-semibold text-white text-lg mb-2">Cadastros Ativos</h3>
+                    <p class="text-[#CBD5E1] text-xs font-light leading-relaxed">
+                        Meta operacional de <strong>5.000 jovens cadastrados</strong> no Ano 1 de piloto e expansão robusta a <strong>50.000 jovens</strong> na escala regional (Ano 3).
+                    </p>
+                </div>
+                <div class="corp-panel rounded-lg p-6">
+                    <span class="text-xs text-blue-400 font-bold block mb-1">MÉTRICAS DE SUCESSO</span>
+                    <h3 class="font-serif font-semibold text-white text-lg mb-2">Certificados Emitidos</h3>
+                    <p class="text-[#CBD5E1] text-xs font-light leading-relaxed">
+                        Estimativa de <strong>60% de conclusão de trilhas</strong> (3.000 certificados emitidos no Ano 1) contra a evasão típica de cursos online tradicionais e MOOCs (frequentemente abaixo de 10%).
+                    </p>
+                </div>
+                <div class="corp-panel rounded-lg p-6">
+                    <span class="text-xs text-blue-400 font-bold block mb-1">MÉTRICAS DE NEGÓCIO</span>
+                    <h3 class="font-serif font-semibold text-white text-lg mb-2">Projetos Publicados</h3>
+                    <p class="text-[#CBD5E1] text-xs font-light leading-relaxed">
+                        Parceria com o SEBRAE-PB e SEDES garantindo o pipeline inicial de atração de <strong>1.500 micro-trabalhos</strong> de PMEs para faturamento direto da juventude.
+                    </p>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 5: Resultados (Outcomes) -->
+        <section id="slide-5" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Cadeia Causal - Outcomes</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">4. Resultados de Médio Prazo</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        • <strong>Primeiro Projeto Remunerado</strong>: O bônus de matching algorítmico (<em>Equity Boost</em>) garante que iniciantes conquistem o capital de oportunidade inicial de micro-projetos, cuja eficácia é cientificamente documentada [Mambosho & Chole, 2024].
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        • <strong>Repetição e Portfólio Digital</strong>: A montagem de portfólios verificáveis e automáticos constrói pontes para o mercado remoto sênior ou contratações subsequentes.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="corp-panel rounded-lg p-5 border-l-4 border-emerald-500">
+                        <h4 class="font-sans font-semibold text-white text-sm mb-1 uppercase">Geração de Renda incremental</h4>
+                        <p class="text-corp-gray text-[11px] leading-relaxed">
+                            Meta de gerar de <strong>R$ 400 a R$ 800/mês</strong> por jovem no Ano 1 de piloto, elevando a autoeficácia financeira e diminuindo a intenção de migração regional econômica forçada [Dinika, 2024].
+                        </p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5 border-l-4 border-emerald-500">
+                        <h4 class="font-sans font-semibold text-white text-sm mb-1 uppercase">Fluxo Acumulado Injetado</h4>
+                        <p class="text-corp-gray text-[11px] leading-relaxed">
+                            Previsão de injetar cerca de <strong>R$ 2 Milhões/mês</strong> na economia periférica nordestina no MVP e até <strong>R$ 20 Milhões/mês</strong> na maturidade da escala nacional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 6: Impactos Sociais (Impact) -->
+        <section id="slide-6" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="corp-panel rounded-lg p-6 bg-gradient-to-br from-corp-navy to-[#18233C] border border-blue-500">
+                    <span class="text-xs text-blue-400 font-bold block mb-1">OBJETIVO CENTRAL DO FID:</span>
+                    <blockquote class="italic text-gray-200 text-sm leading-relaxed mb-4">
+                        "DigitalIA está desenhado para demonstrar rigor metodológico e comprovação causal contrafactual de emancipação, demonstrando que a agilidade tecnológica pode ser colocada a favor da justiça distributiva e redução estrutural da pobreza."
+                    </blockquote>
+                    <span class="text-xs text-corp-gray font-light">— Alinhamento institucional com AFD e Governo Francês</span>
+                </div>
+                
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Cadeia Causal - Impacto</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">5. Impacto de Longo Prazo</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        • <strong>Redução de Desigualdade e Informalidade</strong>: Transição mensurável e sustentável do jovem da vulnerabilidade de subempregos informais (FGV 38,5%) para o trabalho digital remoto sênior.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        • <strong>Retenção de Talentos no Território</strong>: Fomento e empoderamento das economias regionais locais através da circulação e permanência do capital circulante no próprio território (multiplicador de consumo).
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 7: Elo Causal & Literatura -->
+        <section id="slide-7" class="slide flex-col justify-center w-full">
+            <div class="mb-6">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold block font-sans">Evidências Científicas</span>
+                <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mt-1">Lógica Científica de Fundamentação (Elos 1 a 5)</h2>
+                <div class="separator-line w-48 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="corp-panel rounded-lg p-4 border-l-2 border-blue-500">
+                    <h4 class="font-sans font-bold text-white text-xs mb-1">M-Learning / Contexto</h4>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">
+                        A capacitação móvel via WhatsApp e a personalização linguística do Mandacaru são endossadas pela literatura de impacto local [Poornima et al., 2026].
+                    </p>
+                </div>
+                <div class="corp-panel rounded-lg p-4 border-l-2 border-blue-500">
+                    <h4 class="font-sans font-bold text-white text-xs mb-1">Emigração Econômica</h4>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">
+                        O faturamento remoto digital de bolso eleva a autoeficácia e reduz a intenção de migração forçada ao gerar renda no local [Dinika, 2024].
+                    </p>
+                </div>
+                <div class="corp-panel rounded-lg p-4 border-l-2 border-blue-500">
+                    <h4 class="font-sans font-bold text-white text-xs mb-1">Redução de Pobreza</h4>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">
+                        A concessão de capital de oportunidade (matching imediato) aliada a treinamento técnico prático reduz pobreza [Mambosho & Chole, 2024].
+                    </p>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 8: Metodologia de M&E e UFPB -->
+        <section id="slide-8" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Monitoramento & Avaliação</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">Avaliação Quasi-Experimental</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        O edital FID exige avaliação rigorosa <strong>com contrafactual</strong> para atestar o impacto causal das soluções financiadas (Critério 1).
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        Parceria formal em cooperação técnica acadêmica estruturada com o Departamento de Economia/CCSA da <strong>UFPB</strong>, atuando como avaliadora independente das métricas.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="corp-panel rounded-lg p-6">
+                    <h4 class="font-sans font-semibold text-white text-sm mb-4 border-b border-corp-border pb-2 uppercase tracking-wider text-blue-400">Desenho Científico de Campo</h4>
+                    
+                    <div class="space-y-4 text-xs font-light text-[#E2E8F0]">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="users" class="text-blue-400 h-5 w-5 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h5 class="font-sans font-semibold text-white mb-0.5">Grupo Controle por Lista de Espera</h5>
+                                <p class="text-corp-gray text-[10px] leading-relaxed">Eticamente defensável e metodologicamente rigoroso para isolar choques macroeconômicos locais.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="clipboard" class="text-blue-400 h-5 w-5 shrink-0 mt-0.5"></i>
+                            <div>
+                                <h5 class="font-sans font-semibold text-white mb-0.5">Surveys de Linha de Base Conversacionais</h5>
+                                <p class="text-corp-gray text-[10px] leading-relaxed">Coleta automática pré-intervenção no onboarding via WhatsApp: renda, status laboral, e autoeficácia.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 9: Alinhamento ODS & ESG -->
+        <section id="slide-9" class="slide flex-col justify-center w-full">
+            <div class="text-center mb-8">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold block font-sans">Agenda 2030</span>
+                <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mt-2">Nossos Compromissos ESG e ODS</h2>
+                <div class="separator-line w-48 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+                <div class="corp-panel rounded p-4 text-center border-t border-blue-500">
+                    <span class="font-sans font-bold text-white uppercase block mb-1">ODS 1</span>
+                    <h5 class="text-blue-400 font-semibold mb-2">Erradicação da Pobreza</h5>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">Injeção direta de micro-pagamentos na renda familiar periférica local.</p>
+                </div>
+                <div class="corp-panel rounded p-4 text-center border-t border-blue-500">
+                    <span class="font-sans font-bold text-white uppercase block mb-1">ODS 4</span>
+                    <h5 class="text-blue-400 font-semibold mb-2">Educação de Qualidade</h5>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">Metodologia baseada em microlearning focado e de alta adesão.</p>
+                </div>
+                <div class="corp-panel rounded p-4 text-center border-t border-blue-500">
+                    <span class="font-sans font-bold text-white uppercase block mb-1">ODS 8</span>
+                    <h5 class="text-blue-400 font-semibold mb-2">Trabalho Decente</h5>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">Acesso digno a oportunidades de faturamento remoto independente sênior.</p>
+                </div>
+                <div class="corp-panel rounded p-4 text-center border-t border-blue-500">
+                    <span class="font-sans font-bold text-[#34D399] uppercase block mb-1">ODS 10</span>
+                    <h5 class="text-[#34D399] font-semibold mb-2">Redução de Desigualdades</h5>
+                    <p class="text-corp-gray text-[10px] leading-relaxed">Mecanismo social de Equity Boost algorítmico beneficiando iniciantes.</p>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 10: Encerramento -->
+        <section id="slide-10" class="slide flex-col justify-center items-center text-center w-full">
+            <div class="max-w-4xl">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-4 block font-sans">Acelerar o Futuro</span>
+                <h1 class="font-serif font-semibold text-3xl md:text-5xl text-white mb-6 leading-tight">
+                    O Nordeste é Resiliente. DigitalIA é a Ferramenta.
+                </h1>
+                <div class="separator-line w-48 mx-auto mb-8"></div>
+                <p class="text-[#CBD5E1] text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                    Aliamos o calor da identidade regional nordestina à ciência de dados e rigor avaliativo internacional do FID. Proporcionamos mobilidade social real na base da pirâmide.
+                </p>
+                <div class="text-xs text-corp-gray space-y-1">
+                    <p class="font-semibold text-white">Contato Acadêmico e de M&E: <span class="font-mono text-blue-400 font-bold">pesquisa@vertekia.com.br</span></p>
+                    <p>DigitalIA &copy; 2026 Vertekia • Tese de Mudança Social para o FID</p>
+                </div>
+            </div>
+        </section>
+ 
+    </main>
+ 
+    <!-- Footer Controls -->
+    <footer class="w-full px-12 py-5 flex justify-between items-center border-t border-[#1F2937] z-10">
+        <button id="btn-prev" class="bg-[#111827] hover:bg-[#1F2937] border border-[#1F2937] rounded-md px-5 py-2.5 text-xs font-semibold tracking-wider text-corp-gray hover:text-white transition flex items-center gap-2">
+            <i data-lucide="chevron-left" class="h-4 w-4"></i> ANTERIOR
+        </button>
+        <div class="flex gap-2.5" id="slide-dots">
+            <!-- Dots generated by JS -->
+        </div>
+        <button id="btn-next" class="bg-[#111827] hover:bg-[#1F2937] border border-[#1F2937] rounded-md px-5 py-2.5 text-xs font-semibold tracking-wider text-corp-gray hover:text-white transition flex items-center gap-2">
+            PRÓXIMO <i data-lucide="chevron-right" class="h-4 w-4"></i>
+        </button>
+    </footer>
+ 
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+ 
+        // Slide State Management
+        let currentSlide = 1;
+        const totalSlides = 10;
+ 
+        // Slide Elements
+        const slides = [];
+        for (let i = 1; i <= totalSlides; i++) {
+            slides.push(document.getElementById(`slide-${i}`));
+        }
+ 
+        // Nav Buttons
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const slideCounter = document.getElementById('slide-counter');
+        const slideDots = document.getElementById('slide-dots');
+ 
+        // Generate Dots
+        for (let i = 1; i <= totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `h-1.5 rounded-full transition-all duration-300 ${i === 1 ? 'bg-blue-500 w-6' : 'bg-[#1F2937] w-1.5'}`;
+            dot.addEventListener('click', () => navigateToSlide(i));
+            slideDots.appendChild(dot);
+        }
+ 
+        const dots = slideDots.children;
+ 
+        function updateSlideUI() {
+            // Toggle active classes
+            slides.forEach((slide, idx) => {
+                if (idx + 1 === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+ 
+            // Update Counter
+            slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
+ 
+            // Update Dots
+            Array.from(dots).forEach((dot, idx) => {
+                if (idx + 1 === currentSlide) {
+                    dot.className = 'h-1.5 w-6 rounded-full bg-blue-500 transition-all duration-300';
+                } else {
+                    dot.className = 'h-1.5 w-1.5 rounded-full bg-[#1F2937] transition-all duration-300';
+                }
+            });
+        }
+ 
+        function navigateToSlide(slideNum) {
+            if (slideNum < 1 || slideNum > totalSlides) return;
+            currentSlide = slideNum;
+            updateSlideUI();
+        }
+ 
+        // Navigation actions
+        btnPrev.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                navigateToSlide(currentSlide - 1);
+            }
+        });
+ 
+        btnNext.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                navigateToSlide(currentSlide + 1);
+            }
+        });
+ 
+        // Keyboard Controls
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                if (currentSlide < totalSlides) navigateToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                if (currentSlide > 1) navigateToSlide(currentSlide - 1);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalIA - Technical Pitch and Governance Deck (FID Proposal)</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+ 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    colors: {
+                        corp: {
+                            navy: '#0A0F1D',      /<em> Ultra dark background for elite consulting style </em>/
+                            slate: '#161F38',     /<em> Slate panel for high contrast containers </em>/
+                            light: '#F8FAFC',
+                            blue: '#3B82F6',      /<em> High accessibility cobalt blue </em>/
+                            teal: '#0D9488',
+                            gray: '#CBD5E1',      /<em> High contrast secondary gray </em>/
+                            textMain: '#FFFFFF',  /<em> Pure white for primary text (Contrast 10+:1) </em>/
+                            textSub: '#E2E8F0',   /<em> Gray 200 for body text (Contrast 8+:1) </em>/
+                            border: '#2A3B66',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+ 
+    <style>
+        body {
+            background-color: #0A0F1D;
+            color: #E2E8F0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .corp-panel {
+            background: #111827;
+            border: 1px solid #1F2937;
+            box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.4);
+        }
+ 
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+ 
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+ 
+        .separator-line {
+            height: 2px;
+            background: linear-gradient(90deg, #3B82F6 0%, rgba(59, 130, 246, 0) 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen relative flex flex-col justify-between">
+ 
+    <!-- Top Elegant Navigation Indicator -->
+    <header class="w-full px-12 py-5 flex justify-between items-center border-b border-[#1F2937] z-10">
+        <div class="flex items-center gap-3">
+            <div class="h-8 w-8 rounded bg-gradient-to-tr from-blue-600 to-teal-500 flex items-center justify-center shadow">
+                <i data-lucide="award" class="text-white h-4.5 w-4.5"></i>
+            </div>
+            <span class="font-sans font-bold text-xl tracking-tight text-white">DigitalIA</span>
+        </div>
+        <div class="flex items-center gap-6 text-xs text-corp-gray font-medium">
+            <span class="tracking-widest uppercase font-semibold text-blue-400">FID TECHNICAL PROPOSAL — VERTEKIA & JOSÉ WERKLEY</span>
+            <span class="h-4 w-px bg-[#1F2937]"></span>
+            <span id="slide-counter" class="font-mono text-white text-sm">1 / 12</span>
+        </div>
+    </header>
+ 
+    <!-- Slide Content Wrapper -->
+    <main class="flex-grow flex items-center justify-center px-12 md:px-24 z-10 w-full max-w-7xl mx-auto overflow-hidden">
+        
+        <!-- Slide 1: Cover -->
+        <section id="slide-1" class="slide active flex-col justify-center items-start w-full">
+            <div class="max-w-4xl">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-4 block font-sans">FID PREPARE GRANT — ESTÁGIO 0</span>
+                <h1 class="font-serif font-semibold text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+                    DigitalIA: Capacitação em Larga Escala e Emancipação Econômica Juvenil
+                </h1>
+                <div class="separator-line w-48 mb-8"></div>
+                <p class="text-[#E2E8F0] text-lg md:text-xl max-w-3xl mb-10 leading-relaxed font-light">
+                    Solução de alto impacto socioeconômico para a juventude periférica do Nordeste brasileiro. Aliamos o poder conversacional do WhatsApp, inteligência artificial pedagógica local, equidade algorítmica de matching e descentralização Web3 para gerar renda e inclusão produtiva real.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs font-semibold tracking-wider text-white">
+                    <span class="bg-[#111827] border border-[#1F2937] px-4 py-2.5 rounded text-blue-400">
+                        PROPONENTE: VERTEKIA (JOÃO PESSOA - PB)
+                    </span>
+                    <span class="bg-[#111827] border border-[#1F2937] px-4 py-2.5 rounded text-blue-400">
+                        DIRETOR TÉCNICO: JOSÉ WERKLEY SARMENTO DIAS
+                    </span>
+                    <span class="bg-[#111827] border border-[#1F2937] px-4 py-2.5 rounded text-emerald-400">
+                        VALOR PLEITEADO: €50.000 PREPARE GRANT
+                    </span>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 2: Diagnóstico do Problema -->
+        <section id="slide-2" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Diagnóstico Social (Section 2.1)</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6 leading-tight">A Realidade da Desigualdade Regional</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        A desigualdade regional brasileira não é uma abstração — ela se materializa na renda do jovem periférico nordestino, cuja defasagem estrutural limita o desenvolvimento.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        O projeto ataca diretamente esse abismo através do treinamento direcionado à renda digital, permitindo que a juventude local acesse mercados de maior remuneração de forma autônoma e descentralizada.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-corp-gray text-[10px] uppercase font-bold block mb-1">Renda Média NE</span>
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">R$ 2.282</h3>
+                        <p class="text-corp-gray text-[10px] leading-relaxed">Defasagem de <strong>36%</strong> em relação à média nacional de R$ 3.560 [IBGE, 2025].</p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-corp-gray text-[10px] uppercase font-bold block mb-1">Informalidade Jovem</span>
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">38,5%</h3>
+                        <p class="text-corp-gray text-[10px] leading-relaxed">De jovens de 18 a 29 anos ocupados no subemprego [FGV IBRE, 2025].</p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-corp-gray text-[10px] uppercase font-bold block mb-1">Desemprego 18-24</span>
+                        <h3 class="text-white font-serif text-2xl font-bold mb-1">11,4%</h3>
+                        <p class="text-corp-gray text-[10px] leading-relaxed">Equivale a cerca do <strong>dobro</strong> da taxa geral de desemprego [IBGE, Q4/2025].</p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5">
+                        <span class="text-corp-gray text-[10px] uppercase font-bold block mb-1">Freelance Remoto</span>
+                        <h3 class="text-emerald-400 font-serif text-2xl font-bold mb-1">R$ 6.479</h3>
+                        <p class="text-corp-gray text-[10px] leading-relaxed">Remuneração média de profissionais digitais, cerca de <strong>2,7x</strong> presencial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 3: Por Que as Soluções Atuais Falham -->
+        <section id="slide-3" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-4">
+                    <div class="corp-panel rounded-lg p-5 border-l-4 border-red-500">
+                        <span class="text-xs text-red-500 font-bold block mb-1">CURSOS PRESENCIAIS (SENAC)</span>
+                        <p class="text-[#E2E8F0] text-xs font-light leading-relaxed">
+                            Custo por aluno elevado (R$ 800 - R$ 1.200) e fricção logística insuperável (deslocamento fixo, vagas restritas). O jovem que precisa trabalhar não consegue frequentar.
+                        </p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5 border-l-4 border-red-500">
+                        <span class="text-xs text-red-500 font-bold block mb-1">MOOCS E CURSOS ONLINE</span>
+                        <p class="text-[#E2E8F0] text-xs font-light leading-relaxed">
+                            Evasão crônica (conclusão abaixo de 10%), falta de contextualização cultural/linguística com a região e total ausência de ponte direta para geração de renda ativa.
+                        </p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-5 border-l-4 border-red-500">
+                        <span class="text-xs text-red-500 font-bold block mb-1">PROGRAMAS GOVERNAMENTAIS</span>
+                        <p class="text-[#E2E8F0] text-xs font-light leading-relaxed">
+                            Desconectados da demanda real das empresas locais. A evidência científica mostra que eficácia digital depende criticamente da adaptação local [Poornima et al., 2026].
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">A Lacuna Específica</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6 leading-tight">O Abismo de Três Barreiras</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        Nenhuma das soluções existentes resolve ao mesmo tempo as três maiores barreiras do jovem periférico nordestino: <strong>Acesso</strong>, <strong>Custo</strong> e <strong>Ponte para Renda</strong>.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        O DigitalIA surge com custo marginal baixo (R$ 80 - R$ 120 por jovem) entregando qualificação mobile e o primeiro contrato pago.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 4: A Lógica da Solução -->
+        <section id="slide-4" class="slide flex-col justify-center w-full">
+            <div class="mb-8">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold block font-sans">Estratégia Operacional</span>
+                <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mt-2">A Lógica da Solução: Fricção Zero</h2>
+                <div class="separator-line w-48 mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="corp-panel rounded-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-10 w-10 rounded bg-blue-900/30 border border-blue-500 flex items-center justify-center mb-4">
+                            <i data-lucide="smartphone" class="text-blue-400 h-5 w-5"></i>
+                        </div>
+                        <h3 class="font-serif font-semibold text-white text-lg mb-2">WhatsApp como Canal</h3>
+                        <p class="text-[#CBD5E1] text-xs font-light leading-relaxed">
+                            Utiliza o canal presente em 99% dos celulares no Brasil [DOT Digital Group]. Sem necessidade de computadores, downloads de apps ou internet rápida. Aprendizado assíncrona.
+                        </p>
+                    </div>
+                </div>
+                <div class="corp-panel rounded-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-10 w-10 rounded bg-blue-900/30 border border-blue-500 flex items-center justify-center mb-4">
+                            <i data-lucide="activity" class="text-blue-400 h-5 w-5"></i>
+                        </div>
+                        <h3 class="font-serif font-semibold text-white text-lg mb-2">Custo Radicalmente Baixo</h3>
+                        <p class="text-[#CBD5E1] text-xs font-light leading-relaxed">
+                            Custo estimado de R$ 80 a R$ 120 por jovem capacitado. Menos de 1/6 do custo do SENAC presencial, com escalabilidade viabilizada por tutores cognitivos de IA dedicados.
+                        </p>
+                    </div>
+                </div>
+                <div class="corp-panel rounded-lg p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="h-10 w-10 rounded bg-blue-900/30 border border-blue-500 flex items-center justify-center mb-4">
+                            <i data-lucide="wallet" class="text-blue-400 h-5 w-5"></i>
+                        </div>
+                        <h3 class="font-serif font-semibold text-white text-lg mb-2">Ponte Concreta para Renda</h3>
+                        <p class="text-[#CBD5E1] text-xs font-light leading-relaxed">
+                            O programa não termina com o certificado; ele termina no primeiro projeto pago de PMEs locais, com 70% do orçamento indo direto ao bolso do jovem capacitado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 5: As 4 Trilhas e Pedagogia -->
+        <section id="slide-5" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Pedagogia de Bolso</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">4 Trilhas de Aprendizagem Rápida</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        Desenvolvemos uma grade baseada em microlearning focado exclusivamente em competências de demanda imediata pelas PMEs:
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        A personalização cultural é liderada pelo assistente <strong>Mandacaru</strong>, que se comunica em tom coloquial nordestino acolhedor ("oxente", "visse", "caboclo"), mitigando a barreira da exclusão.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="corp-panel rounded-lg p-4 border-t-2 border-blue-500">
+                        <h4 class="font-sans font-semibold text-white text-xs uppercase mb-1">1. Redes Sociais com IA</h4>
+                        <p class="text-corp-gray text-[10px] font-light">Criação de legendas comerciais no ChatGPT, planejamento editorial e posts básicos no Instagram.</p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-4 border-t-2 border-blue-500">
+                        <h4 class="font-sans font-semibold text-white text-xs uppercase mb-1">2. Design Visual com IA</h4>
+                        <p class="text-corp-gray text-[10px] font-light">Habilitação gráfica rápida utilizando Canva IA, Coolors e editores visuais de baixa fricção.</p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-4 border-t-2 border-blue-500">
+                        <h4 class="font-sans font-semibold text-white text-xs uppercase mb-1">3. Automação de Marketing</h4>
+                        <p class="text-corp-gray text-[10px] font-light">WhatsApp Business, criação de scripts de atendimento automático e fluxos sem código (n8n).</p>
+                    </div>
+                    <div class="corp-panel rounded-lg p-4 border-t-2 border-blue-500">
+                        <h4 class="font-sans font-semibold text-white text-xs uppercase mb-1">4. Conteúdo em Vídeo</h4>
+                        <p class="text-corp-gray text-[10px] font-light">Criação de roteiros rápidos, cortes dinâmicos e legendagem automática com CapCut Mobile.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 6: A Lógica da Tecnologia -->
+        <section id="slide-6" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Infraestrutura e Escalabilidade</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">Pilha de Microsserviços e Jobs</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        • <strong>Processamento Assíncrono</strong>: Construído em FastAPI (Python 3.12) assíncrono para garantir alta vazão e baixo tempo de resposta a webhooks do WhatsApp.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        • <strong>Gerenciamento de Fila & Armazenamento</strong>: Cache no Redis 7.2 com TTL de 24h para sessões ativas do chatbot. Tarefas pesadas (transcrições e PDFs) rodam de forma isolada em Celery Workers, persistindo ativos no AWS S3 (LocalStack).
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="corp-panel rounded-lg p-6">
+                    <h4 class="font-sans font-semibold text-white text-sm mb-4 border-b border-corp-border pb-2 uppercase tracking-wider text-blue-400">Camadas da Arquitetura</h4>
+                    
+                    <div class="space-y-3 font-mono text-[11px] text-[#E2E8F0]">
+                        <div class="flex justify-between border-b border-corp-border/50 pb-1.5">
+                            <span class="text-corp-gray font-sans font-semibold">FastAPI CORE:</span>
+                            <span class="text-blue-400 font-bold">SQLAlchemy 2.0 (Async/Postgres)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/50 pb-1.5">
+                            <span class="text-corp-gray font-sans font-semibold">CACHE DE ESTADO:</span>
+                            <span class="text-blue-400 font-bold">Redis 7.2 (Sessão & Lock)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/50 pb-1.5">
+                            <span class="text-corp-gray font-sans font-semibold">TASK MANAGER:</span>
+                            <span class="text-blue-400 font-bold">Celery Workers + Celery Beat</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-corp-gray font-sans font-semibold">STORAGE S3:</span>
+                            <span class="text-emerald-400 font-bold">AWS S3 (LocalStack Bucket Portfolios)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 7: Arquitetura de Dados -->
+        <section id="slide-7" class="slide flex-col justify-center w-full">
+            <div class="mb-6">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold block font-sans">Modelagem de Banco de Dados</span>
+                <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mt-1">9 Tabelas Físicas Versionadas em Alembic</h2>
+                <div class="separator-line w-48 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="corp-panel rounded-lg p-4 border-t border-blue-500">
+                    <h4 class="font-sans font-bold text-white text-xs uppercase mb-2">Entidades Principais</h4>
+                    <ul class="space-y-1 text-[#CBD5E1] text-[10px] font-mono">
+                        <li>• <strong>learners</strong>: Dados PII criptografados</li>
+                        <li>• <strong>companies</strong>: CNPJ e dados de PMEs</li>
+                        <li>• <strong>conversations</strong>: Mensagens protegidas</li>
+                    </ul>
+                </div>
+                <div class="corp-panel rounded-lg p-4 border-t border-blue-500">
+                    <h4 class="font-sans font-bold text-white text-xs uppercase mb-2">Fluxo Pedagógico</h4>
+                    <ul class="space-y-1 text-[#CBD5E1] text-[10px] font-mono">
+                        <li>• <strong>lesson_progress</strong>: Notas e tentativas</li>
+                        <li>• <strong>learner_skills</strong>: Nível acumulado</li>
+                        <li>• <strong>completed_trails</strong>: Trilha finalizada</li>
+                    </ul>
+                </div>
+                <div class="corp-panel rounded-lg p-4 border-t border-blue-500">
+                    <h4 class="font-sans font-bold text-white text-xs uppercase mb-2">Matching & Confiança</h4>
+                    <ul class="space-y-1 text-[#CBD5E1] text-[10px] font-mono">
+                        <li>• <strong>projects</strong>: Orçamento e requisitos</li>
+                        <li>• <strong>project_matches</strong>: Scores e Pix</li>
+                        <li>• <strong>certificates</strong>: NFT Polygon hashes</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-corp-gray text-[10px] mt-4 font-light text-center">
+                A infraestrutura de banco de dados suporta migração segura com scripts de inicialização de extensões UUID (gen_random_uuid) nativas.
+            </p>
+        </section>
+ 
+        <!-- Slide 8: Lógica da Inteligência Artificial -->
+        <section id="slide-8" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="corp-panel rounded-lg p-5">
+                    <h4 class="font-sans font-semibold text-white text-xs mb-3 border-b border-corp-border pb-1.5 uppercase text-blue-400 tracking-wider">Ações Cognitivas via Function Calling</h4>
+                    
+                    <div class="space-y-2.5 text-[10px] text-[#E2E8F0] font-mono">
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1.5">
+                            <span>record_lesson_completion():</span>
+                            <span class="text-blue-400 font-bold">Evaluates & saves lesson grades</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1.5">
+                            <span>get_next_lesson():</span>
+                            <span class="text-blue-400 font-bold">Returns personalized lesson</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1.5">
+                            <span>submit_project():</span>
+                            <span class="text-blue-400 font-bold">Registers freelance delivery</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1.5">
+                            <span>check_projects():</span>
+                            <span class="text-emerald-400 font-bold">Lists available jobs</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>get_progress():</span>
+                            <span class="text-emerald-400 font-bold">Generates report cards</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Cognitive Engine</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">Orquestração Cognitiva e Whisper</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        • <strong>OpenAI Whisper</strong>: Integrado para transcrever mensagens de voz do WhatsApp. Jovens com baixa proficiência escrita gravam áudios relatando exercícios, rompendo a barreira textual.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        • <strong>Resiliência Local (Offline Fallback)</strong>: Em caso de oscilação de conexões ou indisponibilidade de chaves OpenAI reais, o sistema ativa algoritmos heurísticos que interpretam o contexto em dialeto e corrigem lições localmente.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 9: Segurança & LGPD -->
+        <section id="slide-9" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Privacy by Design</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">Conformidade Estrita com a LGPD</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        Garantimos segurança cibernética máxima e blindagem ética para todos os dados sensíveis dos jovens periféricos de acordo com a Lei 13.709/2018.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        A proteção de menores (Artigo 14 da LGPD) está integrada nativamente na máquina de estados: usuários menores de 18 anos são impedidos de estudar sem consentimento parental atestado.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+                
+                <div class="corp-panel rounded-lg p-6">
+                    <h4 class="font-sans font-semibold text-white text-sm mb-4 border-b border-corp-border pb-2 uppercase tracking-wider text-blue-400">Controles de Privacidade Ativos</h4>
+                    
+                    <div class="space-y-4 text-xs font-light text-[#E2E8F0]">
+                        <div class="flex items-start gap-3">
+                            <span class="h-5 w-5 rounded bg-blue-900/30 border border-blue-500 text-[10px] text-blue-400 font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <div>
+                                <h5 class="font-sans font-semibold text-white mb-0.5">AES-256-GCM em Repouso</h5>
+                                <p class="text-corp-gray text-[10px] leading-relaxed">Nomes, números e históricos de conversas são criptografados simetricamente antes da gravação física.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="h-5 w-5 rounded bg-blue-900/30 border border-blue-500 text-[10px] text-blue-400 font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <div>
+                                <h5 class="font-sans font-semibold text-white mb-0.5">SHA-256 Hashing de Telefone</h5>
+                                <p class="text-corp-gray text-[10px] leading-relaxed">Pesquisas operacionais no Postgres utilizam hashes anônimos irreversíveis, mitigando riscos de correlação direta.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="h-5 w-5 rounded bg-blue-900/30 border border-blue-500 text-[10px] text-blue-400 font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <div>
+                                <h5 class="font-sans font-semibold text-white mb-0.5">Exclusão Programada (2 anos)</h5>
+                                <p class="text-corp-gray text-[10px] leading-relaxed">Exclusão e anonimização física agendada no banco de dados para todos os registros após 2 anos do onboarding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 10: O Motor de Matching de Equidade -->
+        <section id="slide-10" class="slide flex-col justify-center w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="corp-panel rounded-lg p-5">
+                    <h4 class="font-sans font-semibold text-white text-xs mb-3 border-b border-corp-border pb-1.5 uppercase text-blue-400 tracking-wider">Cálculo de Cosseno com Equity Boost</h4>
+                    
+                    <div class="space-y-4 text-xs font-light">
+                        <div>
+                            <span class="text-xs uppercase text-blue-400 font-bold block mb-1">Vetor de Matching de 8 Dimensões</span>
+                            <div class="bg-corp-navy border border-corp-border rounded p-2.5 text-blue-400 font-mono text-[10px]">
+                                Vector = [Skills(5d), Hours(1d), Experience(1d), Rating(1d)]
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-xs uppercase text-emerald-400 font-bold block mb-1">Equity Boost Social</span>
+                            <p class="text-corp-gray text-[10px] leading-relaxed">
+                                Jovens com menos de 3 projetos entregues recebem <strong>+15%</strong> de bônus no match de demandas de baixa complexidade, garantindo a conquista da primeira oportunidade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-2 block font-sans">Matching Engine</span>
+                    <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mb-6">Similaridade e Justiça Algorítmica</h2>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-4 font-light">
+                        • <strong>Cálculo Geométrico</strong>: O motor em Python calcula o cosseno do ângulo entre o vetor do perfil do jovem (habilidades e ratings) e o vetor do projeto, ordenando as melhores propostas.
+                    </p>
+                    <p class="text-[#E2E8F0] text-sm leading-relaxed mb-6 font-light">
+                        • <strong>Equidade Prática</strong>: O boost social resolve o problem clássico de plataformas tradicionais, onde profissionais seniores monopolizam o fluxo, impedindo que iniciantes conquistem o primeiro trabalho.
+                    </p>
+                    <div class="separator-line w-32"></div>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 11: Orçamento Detalhado -->
+        <section id="slide-11" class="slide flex-col justify-center w-full">
+            <div class="mb-6">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold block font-sans">Viabilidade Operacional e Custos</span>
+                <h2 class="font-serif font-semibold text-3xl md:text-4xl text-white mt-1">Prepare Grant Budget: €50.000 (Stage 0)</h2>
+                <div class="separator-line w-48 mt-3"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="corp-panel rounded-lg p-5">
+                    <h4 class="font-sans font-semibold text-white text-xs mb-3 border-b border-corp-border pb-1.5 uppercase tracking-wide text-blue-400">Distribuição Orçamentária Detalhada</h4>
+                    
+                    <div class="space-y-2 font-mono text-[10px] text-gray-300">
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1">
+                            <span>PESSOAL E DESENVOLVEDORES (60%):</span>
+                            <span class="font-bold text-white">€30.000</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1">
+                            <span>INFRAESTRUTURA TÉCNICA E AWS S3 (15%):</span>
+                            <span class="font-bold text-white">€7.500</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1">
+                            <span>VALIDAÇÃO E PESQUISA M&E COM UFPB (10%):</span>
+                            <span class="font-bold text-white">€5.000</span>
+                        </div>
+                        <div class="flex justify-between border-b border-corp-border/30 pb-1">
+                            <span>PARCERIAS E SUPORTE COMUNIDADES (10%):</span>
+                            <span class="font-bold text-white">€5.000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>GESTÃO, AUDITORIA E COMPLIANCE (5%):</span>
+                            <span class="font-bold text-emerald-400">€2.500</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-serif font-semibold text-white text-lg mb-2">Custo-Efetividade Excepcional</h4>
+                    <p class="text-[#CBD5E1] text-xs leading-relaxed mb-4 font-light">
+                        O orçamento atende estritamente às diretrizes de conformidade financeira do FID, priorizando diretamente a validação de campo do piloto em João Pessoa com 200 jovens e a estruturação metodológica com a UFPB.
+                    </p>
+                    <p class="text-[#CBD5E1] text-xs leading-relaxed mb-6 font-light">
+                        Custo operacional previsto por aluno de <strong>R$ 80 a R$ 120</strong>, o que equivale a menos de 1/6 do custo por aluno do SENAC tradicional presencial.
+                    </p>
+                </div>
+            </div>
+        </section>
+ 
+        <!-- Slide 12: Execução & Conclusão -->
+        <section id="slide-12" class="slide flex-col justify-center items-center text-center w-full">
+            <div class="max-w-4xl">
+                <span class="text-xs uppercase tracking-widest text-blue-400 font-bold mb-4 block font-sans">Conclusão e Próximos Passos</span>
+                <h1 class="font-serif font-semibold text-3xl md:text-5xl text-white mb-6 leading-tight">
+                    DigitalIA: Transformando o Celular em Alavanca Social Nordestina
+                </h1>
+                <div class="separator-line w-48 mx-auto mb-8"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8 text-left">
+                    <div class="corp-panel rounded p-3">
+                        <span class="font-sans font-bold text-blue-400 text-xs block mb-1">Stage 0: Prepare</span>
+                        <p class="text-[#CBD5E1] text-[9px] font-light">Validação com 200 jovens em João Pessoa, formalização acadêmica com UFPB e design de M&E.</p>
+                    </div>
+                    <div class="corp-panel rounded p-3">
+                        <span class="font-sans font-bold text-blue-400 text-xs block mb-1">Stage 1: Piloto</span>
+                        <p class="text-[#CBD5E1] text-[9px] font-light">Capacitação de 5.000 jovens nas capitais João Pessoa, Recife e Fortaleza (Ano 1).</p>
+                    </div>
+                    <div class="corp-panel rounded p-3">
+                        <span class="font-sans font-bold text-blue-400 text-xs block mb-1">Stage 2: Evidência</span>
+                        <p class="text-[#CBD5E1] text-[9px] font-light">Expansão para 20.000 jovens no Nordeste com validação rigorosa de impacto contrafactual.</p>
+                    </div>
+                    <div class="corp-panel rounded p-3">
+                        <span class="font-sans font-bold text-[#34D399] text-xs block mb-1">Stage 3: Escala</span>
+                        <p class="text-[#CBD5E1] text-[9px] font-light">50.000 jovens capacitados em todos os estados, com R$ 20M/mês injetados na base local.</p>
+                    </div>
+                </div>
+ 
+                <div class="text-xs text-[#CBD5E1] space-y-1">
+                    <p class="font-semibold text-white">Contato e Informações: <span class="font-mono text-blue-400 font-bold">diretoria@vertekia.com.br</span></p>
+                    <p>DigitalIA &copy; 2026 Vertekia • Relatório Técnico Integrado para AFD</p>
+                </div>
+            </div>
+        </section>
+ 
+    </main>
+ 
+    <!-- Footer Controls -->
+    <footer class="w-full px-12 py-5 flex justify-between items-center border-t border-[#1F2937] z-10">
+        <button id="btn-prev" class="bg-[#111827] hover:bg-[#1F2937] border border-[#1F2937] rounded-md px-5 py-2.5 text-xs font-semibold tracking-wider text-corp-gray hover:text-white transition flex items-center gap-2">
+            <i data-lucide="chevron-left" class="h-4 w-4"></i> ANTERIOR
+        </button>
+        <div class="flex gap-2" id="slide-dots">
+            <!-- Dots generated by JS -->
+        </div>
+        <button id="btn-next" class="bg-[#111827] hover:bg-[#1F2937] border border-[#1F2937] rounded-md px-5 py-2.5 text-xs font-semibold tracking-wider text-corp-gray hover:text-white transition flex items-center gap-2">
+            PRÓXIMO <i data-lucide="chevron-right" class="h-4 w-4"></i>
+        </button>
+    </footer>
+ 
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+ 
+        // Slide State Management
+        let currentSlide = 1;
+        const totalSlides = 12;
+ 
+        // Slide Elements
+        const slides = [];
+        for (let i = 1; i <= totalSlides; i++) {
+            slides.push(document.getElementById(`slide-${i}`));
+        }
+ 
+        // Nav Buttons
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const slideCounter = document.getElementById('slide-counter');
+        const slideDots = document.getElementById('slide-dots');
+ 
+        // Generate Dots
+        for (let i = 1; i <= totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = `h-1.5 rounded-full transition-all duration-300 ${i === 1 ? 'bg-blue-500 w-6' : 'bg-[#1F2937] w-1.5'}`;
+            dot.addEventListener('click', () => navigateToSlide(i));
+            slideDots.appendChild(dot);
+        }
+ 
+        const dots = slideDots.children;
+ 
+        function updateSlideUI() {
+            // Toggle active classes
+            slides.forEach((slide, idx) => {
+                if (idx + 1 === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+ 
+            // Update Counter
+            slideCounter.textContent = `${currentSlide} / ${totalSlides}`;
+ 
+            // Update Dots
+            Array.from(dots).forEach((dot, idx) => {
+                if (idx + 1 === currentSlide) {
+                    dot.className = 'h-1.5 w-6 rounded-full bg-blue-500 transition-all duration-300';
+                } else {
+                    dot.className = 'h-1.5 w-1.5 rounded-full bg-[#1F2937] transition-all duration-300';
+                }
+            });
+        }
+ 
+        function navigateToSlide(slideNum) {
+            if (slideNum < 1 || slideNum > totalSlides) return;
+            currentSlide = slideNum;
+            updateSlideUI();
+        }
+ 
+        // Navigation actions
+        btnPrev.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                navigateToSlide(currentSlide - 1);
+            }
+        });
+ 
+        btnNext.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                navigateToSlide(currentSlide + 1);
+            }
+        });
+ 
+        // Keyboard Controls
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                if (currentSlide < totalSlides) navigateToSlide(currentSlide + 1);
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                if (currentSlide > 1) navigateToSlide(currentSlide - 1);
+            }
+        });
+    </script>
+</body>
+</html>
