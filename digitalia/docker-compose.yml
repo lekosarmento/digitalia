@@ -1,5 +1,8 @@
 version: '3.8'
 
+env_file:
+  - .env
+
 services:
   postgres:
     image: postgres:16-alpine
@@ -8,7 +11,7 @@ services:
     environment:
       POSTGRES_DB: digitalia
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: development_password_secure_123
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -60,11 +63,11 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:development_password_secure_123@postgres:5432/digitalia
+      - DATABASE_URL=postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/digitalia
       - REDIS_URL=redis://redis:6379/0
-      - WA_APP_SECRET=digitalia_app_secret_placeholder
-      - WA_VERIFY_TOKEN=digitalia_verify_token_default
-      - LGPD_ENCRYPTION_KEY=digitalia_secure_key_32bytes_long!
+      - WA_APP_SECRET=${WA_APP_SECRET}
+      - WA_VERIFY_TOKEN=${WA_VERIFY_TOKEN}
+      - LGPD_ENCRYPTION_KEY=${LGPD_ENCRYPTION_KEY}
     depends_on:
       postgres:
         condition: service_healthy
@@ -80,7 +83,7 @@ services:
     container_name: digitalia_celery_worker
     command: celery -A app.tasks.worker worker --loglevel=info
     environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:development_password_secure_123@postgres:5432/digitalia
+      - DATABASE_URL=postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/digitalia
       - REDIS_URL=redis://redis:6379/0
     depends_on:
       postgres:
@@ -97,7 +100,7 @@ services:
     container_name: digitalia_celery_beat
     command: celery -A app.tasks.worker beat --loglevel=info
     environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:development_password_secure_123@postgres:5432/digitalia
+      - DATABASE_URL=postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/digitalia
       - REDIS_URL=redis://redis:6379/0
     depends_on:
       postgres:

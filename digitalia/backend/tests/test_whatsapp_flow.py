@@ -4,9 +4,9 @@ import os
 import sys
 
 # Adiciona o diretório backend ao sys.path para imports funcionarem corretamente
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from app.core.database import engine
+from app.database import engine
 from app.models.models import Base
 from app.learning.conversation_manager import ConversationManager
 

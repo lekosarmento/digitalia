@@ -12,6 +12,7 @@ class Lesson:
     demo_steps: List[str]       # Passo a passo numerado
     exercise: str               # O que o aprendiz deve fazer
     exercise_success_criteria: str  # Como o AI avalia o sucesso
+    income_connection: str      # Conexão com renda real
     tools_used: List[str]       # Ferramentas utilizadas na lição
 
 # Lista e mapeamento de lições por trilha

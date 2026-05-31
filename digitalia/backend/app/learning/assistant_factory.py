@@ -7,7 +7,7 @@ import redis.asyncio as aioredis
 from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.database import async_session
+from app.database import async_session
 from app.models.models import Learner, LessonProgress, Project, ProjectMatch, LearnerSkill
 from app.learning.content.trail_content import TRAIL_LESSONS, Lesson
 

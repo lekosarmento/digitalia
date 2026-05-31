@@ -17,7 +17,10 @@ class Learner(Base):
     phone_hash: Mapped[str] = mapped_column(String(64), unique=True, nullable=False)
     phone_encrypted: Mapped[bytes] = mapped_column(LargeBinary, nullable=False)
     first_name: Mapped[Optional[str]] = mapped_column(String(100))
-    age: Mapped[Optional[int]] = mapped_column(Integer, CheckConstraint("age >= 16"))
+    age: Mapped[Optional[int]] = mapped_column(
+        Integer, 
+        CheckConstraint("age >= 16 AND age <= 30", name="check_age_range")
+    )
     gender: Mapped[Optional[str]] = mapped_column(String(30), CheckConstraint("gender IN ('masculino', 'feminino', 'não-binário', 'prefiro_não_informar')"))
     city: Mapped[Optional[str]] = mapped_column(String(100))
     state: Mapped[Optional[str]] = mapped_column(CHAR(2))

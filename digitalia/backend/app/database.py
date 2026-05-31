@@ -2,7 +2,12 @@ import os
 from typing import AsyncGenerator
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+asyncpg://postgres:development_password_secure_123@localhost:5432/digitalia")
+DATABASE_URL = os.getenv("DATABASE_URL")
+if not DATABASE_URL:
+    raise RuntimeError(
+        "CRÍTICO: A variável de ambiente DATABASE_URL não está definida. "
+        "Defina-a no arquivo .env antes de iniciar a aplicação."
+    )
 
 # Assegurar uso do driver asyncpg
 if DATABASE_URL.startswith("postgresql://"):
@@ -21,6 +26,8 @@ AsyncSessionLocal = async_sessionmaker(
     class_=AsyncSession,
     expire_on_commit=False
 )
+
+async_session = AsyncSessionLocal
 
 # Dependency generator para injeção de dependência no FastAPI
 async def get_db() -> AsyncGenerator[AsyncSession, None]:

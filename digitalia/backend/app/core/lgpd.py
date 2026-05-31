@@ -4,8 +4,12 @@ import datetime
 from typing import Optional
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
-# Chave deve ter exatamente 32 bytes (256 bits) para AES-256
-ENCRYPTION_KEY_STR = os.getenv("LGPD_ENCRYPTION_KEY", "digitalia_secure_key_32bytes_long!")
+ENCRYPTION_KEY_STR = os.getenv("LGPD_ENCRYPTION_KEY")
+if not ENCRYPTION_KEY_STR:
+    raise RuntimeError(
+        "CRÍTICO: A variável de ambiente LGPD_ENCRYPTION_KEY não está definida. "
+        "Defina-a no arquivo .env antes de iniciar a aplicação."
+    )
 if len(ENCRYPTION_KEY_STR.encode()) < 32:
     import hashlib
     ENCRYPTION_KEY = hashlib.sha256(ENCRYPTION_KEY_STR.encode()).digest()

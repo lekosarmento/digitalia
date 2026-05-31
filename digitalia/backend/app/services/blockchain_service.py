@@ -24,14 +24,14 @@ class BlockchainService:
         trail_display = trail.replace("_", " ").title()
         return {
             "name": f"Certificado DigitalIA - {trail_display}",
-            "description": f"Certificado oficial de capacitação profissional na Trilha {trail_display} emitido pelo programa DigitalIA (ANENO). Nível {level}.",
+            "description": f"Certificado oficial de capacitação profissional na Trilha {trail_display} emitido pelo programa DigitalIA (Vertekia). Nível {level}.",
             "image": f"ipfs://QmDigitalIAPlaceholderHashes/{trail}_level_{level}.png",
-            "external_url": f"https://digitalia.aneno.org/certificates/{certificate_id}",
+            "external_url": f"https://digitalia.vertekia.com.br/certificates/{certificate_id}",
             "attributes": [
                 {"trait_type": "Learner Name", "value": learner_name},
                 {"trait_type": "Trail", "value": trail},
                 {"trait_type": "Level", "value": level},
-                {"trait_type": "Issuer", "value": "ANENO - DigitalIA"},
+                {"trait_type": "Issuer", "value": "Vertekia - DigitalIA"},
                 {"trait_type": "Blockchain Network", "value": "Polygon Mainnet (Mock)"},
                 {"trait_type": "Token Standard", "value": "ERC-1155"}
             ]

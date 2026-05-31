@@ -4,7 +4,7 @@ import datetime
 from typing import Optional
 from sqlalchemy import select, update
 
-from app.core.database import async_session
+from app.database import async_session
 from app.models.models import Learner
 from app.learning.assistant_factory import redis_client, process_learner_message
 from app.core.lgpd import encrypt_data

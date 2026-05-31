@@ -7,7 +7,13 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
 # Configurações JWT obtidas de variáveis de ambiente
-SECRET_KEY = os.getenv("JWT_SECRET_KEY", "digitalia_super_secret_jwt_key_64bytes_long_which_is_highly_secure_for_production!")
+SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+if not SECRET_KEY:
+    raise RuntimeError(
+        "CRÍTICO: A variável de ambiente JWT_SECRET_KEY não está definida. "
+        "Defina-a no arquivo .env antes de iniciar a aplicação. "
+        "Use: python -c \"import secrets; print(secrets.token_hex(32))\""
+    )
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "1440"))  # 24 horas por padrão para persistência mobile
 

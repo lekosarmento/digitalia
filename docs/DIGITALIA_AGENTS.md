@@ -4,7 +4,7 @@
 > Este documento contém informações proprietárias e estratégicas de projeto. Sua leitura, reprodução, distribuição ou utilização para qualquer fim sem autorização expressa do autor é estritamente proibida. O acesso a este documento implica a aceitação de obrigações de confidencialidade equivalentes às de um **Non-Disclosure Agreement (NDA)**. Qualquer violação estará sujeita às sanções previstas na legislação brasileira (Lei 9.279/96, Lei 12.965/14 e correlatas).
 
 **Autor:** José Werkley Sarmento Dias
-**Organização:** ANENO — João Pessoa, Paraíba, Brasil
+**Organização:** Vertekia — João Pessoa, Paraíba, Brasil
 **Edital-alvo:** Fund for Innovation in Development (FID) — Inovação Social
 **Versão:** 1.0 | **Data:** Maio/2026
 **Classificação:** CONFIDENCIAL — NDA OBRIGATÓRIO

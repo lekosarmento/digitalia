@@ -1,0 +1,43 @@
+name: CI — DigitalIA
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    name: Testes Automatizados
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: |
+          cd digitalia/backend
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Rodar testes unitários
+        run: |
+          cd digitalia/backend
+          pytest tests/ -v
+        env:
+          JWT_SECRET_KEY: ci_test_secret_key_for_github_actions_only
+          LGPD_ENCRYPTION_KEY: ci_test_lgpd_key_32bytes_long_ok!
+          DATABASE_URL: sqlite+aiosqlite:///./test.db
+
+      - name: Verificar que não há referências a ANENO no código
+        run: |
+          if grep -r "ANENO" digitalia/backend/app/ --include="*.py"; then
+            echo "ERRO: Referências a ANENO encontradas no código!"
+            exit 1
+          fi
