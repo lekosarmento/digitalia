@@ -84,11 +84,11 @@ docker exec -e PYTHONPATH=/app -t digitalia_api python app/learning/test_script.
 
 We have prepared and structured all required files for submission to the FID AFD online portal inside this repository:
 
-*   **[`FID_PORTAL_TEXTS.md`](../FID_PORTAL_TEXTS.md)**: English texts optimized and calculated to respect strict character counts for the online forms (Short Description, Development Challenge, Innovation, Progress, Gender/Climate, and Theory of Change narrative).
-*   **[`FID_BUDGET_ACTIVITIES.csv`](../FID_BUDGET_ACTIVITIES.csv)**: Activity-based budget (€50,000 over 6 months) ready for Excel application mapping.
-*   **[`diagrama_teoria_mudanca.png`](../diagrama_teoria_mudanca.png)**: Visual Infographic of the Theory of Change causal links (1200x800px) with assumptions.
-*   **[`presentation_pitch.html`](../presentation_pitch.html)**: Interactive McKinsey/BCG Obsidian-styled HTML Pitch Presentation.
-*   **[`final_delivery_report.md`](../final_delivery_report.md)**: Final Delivery Report & Systems Governance log.
+*   **[`FID_PORTAL_TEXTS.md`](fid_submission/FID_PORTAL_TEXTS.md)**: English texts optimized and calculated to respect strict character counts for the online forms (Short Description, Development Challenge, Innovation, Progress, Gender/Climate, and Theory of Change narrative).
+*   **[`FID_BUDGET_ACTIVITIES.csv`](fid_submission/FID_BUDGET_ACTIVITIES.csv)**: Activity-based budget (€50,000 over 6 months) ready for Excel application mapping.
+*   **[`diagrama_teoria_mudanca.png`](presentations/diagrama_teoria_mudanca.png)**: Visual Infographic of the Theory of Change causal links (1200x800px) with assumptions.
+*   **[`presentation_pitch.html`](presentations/presentation_pitch.html)**: Interactive McKinsey/BCG Obsidian-styled HTML Pitch Presentation.
+*   **[`final_delivery_report.md`](docs/final_delivery_report.md)**: Final Delivery Report & Systems Governance log.
 
 ---
 
