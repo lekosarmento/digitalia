@@ -92,23 +92,6 @@ services:
         condition: service_healthy
     restart: always
 
-  celery_beat:
-    image: digitalia_backend:latest
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: digitalia_celery_beat
-    command: celery -A app.tasks.worker beat --loglevel=info
-    environment:
-      - DATABASE_URL=postgresql+asyncpg://postgres:${POSTGRES_PASSWORD}@postgres:5432/digitalia
-      - REDIS_URL=redis://redis:6379/0
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-    restart: always
-
 volumes:
   postgres_data:
   redis_data:
